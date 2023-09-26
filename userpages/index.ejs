@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body> 
+    <%- include('./navbar.ejs') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <ul class="list-group">
+                <a href="/"><li class="list-group-item <%= continent =="active" ? "active":"" %>">All</li></a> 
+                <a href="/countries/<%= category[3].url %>/1"><li class="list-group-item <%= continent=="africa" ? "active":"" %>">Africa</li></a>
+                 <a href="/countries/<%= category[1].url %>/1"><li class="list-group-item <%= continent=="asia" ? "active":"" %>">Asia</li></a>
+                 <a href="/countries/<%= category[0].url %>/1"><li class="list-group-item <%= continent=="europe" ? "active":"" %>">Europe</li></a>
+                 <a href="/countries/<%= category[2].url %>/1"><li class="list-group-item <%= continent=="euroasia" ? "active":"" %>">Eurasia</li></a>
+                  </ul>
+            </div>
+            <div class="col-9">
+              <% data.forEach(data => { %>
+                <div class="card mb-3" style="max-width: 720px;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="../image/<%=data.imgurl%>" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body"> 
+                        <h5 class="card-title"><a href="/details/<%= data.url %>"><%= data.city_name %></a></h5>
+                        <p class="card-text"><%- data.city_desc %></p>
+                        <p class="card-text"><small class="text-body-secondary"><%= data.city_budget %></small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% }) %>
+                
+            </div>
+        </div> 
+        <div class="d-flex justify-content-center">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item <%= page === 1 ? "d-none":"" %>"><a class="page-link" href="<%= page - 1 %>">Previous</a></li>
+              <li class="page-item <%= page === 1 ? "d-none":"" %>"><a class="page-link" href="<%= page - 1 %>"><%= page - 1 %></a></li>
+              <li class="page-item"><a class="page-link" href="<%=page%>"><%=page%></a></li>
+              <li class="page-item"><a class="page-link" href="<%= page + 1 %>"><%= page + 1%></a></li>
+              <li class="page-item"><a class="page-link" href="<%=page + 1 %>">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+    </div>
+   
+</body>
+</html>

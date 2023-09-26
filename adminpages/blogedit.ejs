@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <title>Blog Edit</title>
+</head>
+<body>
+    <%- include('../userpages/navbar.ejs') %>
+    <div class="container my-5">
+      <% if (action!="undefined" && action =="edit") { %>
+          <div class="alert alert-warning">
+            Blog Düzenlendi
+          </div>
+      <% } %>
+
+      <% if (action !="undefined" && action =="delete") { %>
+        <div class="alert alert-danger">
+          Blog Silindi
+        </div>
+    <% } %>
+        <% for( let i = 0; i < data.length; i++ ) { %>
+            <div class="border border-secondary rounded mb-3 p-2">
+                <div class="card p-1" style="max-width: 100%;">
+                    <div class="row no-gutters">
+                      <div class="col-md-3">
+                        <img src="../image/<%=data[i].imgurl%>" class="card-img" alt="...">
+                      </div>
+                      <div class="col-md-7">
+                        <div class="card-body">
+                          <h5 class="card-title"><%= data[i].city_name %></h5>
+                          <p class="card-text"><%- data[i].city_desc %></p>
+                          <p class="card-text"><small class="text-muted"><%= data[i].city_budget %></small></p>
+                        </div>
+                      </div>
+                      <div class="col-md-2 "> 
+                            <a href="blogedit/edit/<%=data[i].url%>" class="btn btn-outline-primary w-75 mr-4 my-3">Edit</a>
+                            <a href="/admin/blogedit/delete/<%=data[i].url%>?action=delete" class="btn btn-outline-danger d-block w-75 mr-4 my-3">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

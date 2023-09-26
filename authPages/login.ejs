@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-primary mb-5">
+        <span class="navbar-brand mb-0 mx-5 h1">WebTravel</span>
+        <div class="mx-5">
+          <a href="/account/login" class="btn btn-primary">Login</a>
+          <a href="/account/register" class="btn btn-primary">Register</a>
+        </div>
+      </nav>
+      <div class="container">
+          <% if (typeof alertMessage != "undefined") { %>
+            <div class="alert alert-warning">
+                <%= alertMessage %>
+            </div>
+          <% } %>
+
+      
+    <form method="post" class="w-100 mx-auto">
+        <div class="form-group mb-3">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group mb-3">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="password" >
+        </div>
+       
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+      </form>
+      <div class="my-3">
+        <a href="/account/reset-password">Şifremi Unuttum</a>
+      </div>
+    </div>
+    
+</body>
+</html>

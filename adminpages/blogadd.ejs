@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>Add Blog</title>
+</head>
+<body>
+    <%- include('../userpages/navbar.ejs') %>
+    <div class="container">
+        <form method="post" class="mt-5" enctype="multipart/form-data">
+       <div class="form-group row mb-3">
+         <label for="inputCity" class="col-sm-2 col-form-label">City Name</label>
+         <div class="col-sm-10">
+           <input type="text" class="form-control" id="inputCity" name="CityName">
+         </div>
+       </div>
+       <div class="form-group row mb-3">
+        <label for="imglink" class="col-sm-2 col-form-label">City İmage Link</label>
+        <div class="col-sm-10">
+          <input type="file" class="form-control" id="imglink" name="imgLink">
+        </div>
+      </div>
+      <div class="form-group row mb-3">
+        <label for="long_desc" class="col-sm-2 col-form-label">City Long Describe</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="long_desc" name="long_desc">
+        </div>  
+      </div>
+      <div class="form-group row mb-3">
+        <label for="priceDaily" class="col-sm-2 col-form-label">Average Daily Price</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="priceDaily" name="priceDaily">
+        </div>
+      </div>
+       <div class="form-group row mb-3">
+        <label for="cityDesc" class="col-sm-2 col-form-label">City Desc</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" id="editor" rows="3" name="CityDesc"></textarea>
+        </div>
+     </div>
+     <div class="form-group row mb-3">
+         <label class="col-sm-2" for="continentSelect">Continent</label>
+         <div class="col-form-label col-sm-10">
+          <% category.forEach(item => { %> 
+            <div class="form-check" >
+              <input class="form-check-input" name="selectContinent" type="checkbox" value="<%= item.id %>" id="continent<%= item.id %>">
+              <label class="form-check-label" for="continent<%= item.id %>">
+                <%= item.category_name2 %>
+              </label>
+            </div>
+           <% }) %>
+         </div>
+     </div>
+     <div class="form-group row">
+         <button type="submit" class="btn btn-primary w-100">Sign in</button>
+     </div>
+        </form>
+    </div>
+</body>
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+<script>
+  ClassicEditor
+      .create( document.querySelector( '#editor' ) )
+      .catch( error => {
+          console.error( error );
+      } );
+</script>
+</html>

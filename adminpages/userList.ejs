@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <title>Blog Edit</title>
+</head>
+<body>
+    <%- include('../userpages/navbar.ejs') %>
+    <div class="container my-5">
+     
+        <% for( let i = 0; i < userList.length; i++ ) { %>
+            <div class="border border-secondary rounded mb-3 p-2">
+                <div class="card p-1" style="max-width: 100%;">
+                    <div class="row no-gutters">
+                        <!-- user name -->
+                      <div class="col-md-3">
+                      <div class="h-100 d-flex align-items-center"><%=userList[i].fullName%></div>
+                      </div>
+                      <!-- user role -->
+                      <div class="col-md-3">
+                           <div class="h-100 d-flex align-items-center"><%= userList[i].roles[0].role_name %></div>
+                      </div>
+                      <!-- buttons -->
+                      <div class="col-md-3 "> 
+                           <div>
+                            <div class="border-bottom">User Edit</div>
+                            <form action="" method="post">
+                                <div>
+                                    <label for="adminradio<%= i %>">Admin</label>
+                                    <input type="radio" <%= userList[i].roles[0].role_name == "admin" ? "checked" : "" %> name="userradio" id="adminradio<%= i %>" value="admin <%= userList[i].id %>">
+                                </div>
+                                <div>
+                                    <label for="guestradio<%= i %>">Guest</label>
+                                    <input type="radio" <%= userList[i].roles[0].role_name == "guest" ? "checked" : "" %>  name="userradio" id="guestradio<%= i %>" value="guest <%= userList[i].id %>">
+                                </div>
+                                <div>
+                                    <label for="modradio<%= i %>">Mod</label>
+                                    <input type="radio" <%= userList[i].roles[0].role_name == "mod" ? "checked" : "" %>  name="userradio" id="modradio<%= i %>" value="mod  <%= userList[i].id %>">
+                                </div>
+                                <button class="btn btn-primary">Sumbit</button>
+                            </form>
+                           </div>
+                      </div>
+                      <div class="col-md-3">
+                        <a href="/account/userList/delete/<%= userList[i].id %>" class="btn btn-danger my-3">Kullanıcıyı Sil</a>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

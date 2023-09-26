@@ -1,0 +1,26 @@
+    <nav class="navbar bg-body-tertiary d-flex justify-content-around">
+        <div class="container-fluid mx-3">
+          <div>
+            <a href="/" class="navbar-brand text-primary">WebTravel</a>
+            <% if (isAuth && isAuth == 1 && roleType != "guest") { %>
+              <a href="/admin/addblog">Add City</a>
+              <a href="/admin/blogedit"class=" disabled">Edit City</a>
+            <% } %>
+            <% if (roleType == "admin") { %>
+              <a href="/account/userList">Userlist Edit</a>
+            <% } %>
+          </div>
+         <div>
+          <% if (isAuth && isAuth == 1) { %>
+            <a href="/account/logout" class="btn btn-primary">Logout</a>
+          <% } else { %>
+            <a href="/account/login" class="btn btn-primary">Login</a>
+            <a href="/account/register" class="btn btn-primary">Register</a>
+          <% } %>
+           
+            <a href="/admin/addblog" class="btn btn-outline-primary mx-3">
+                Add Trip 
+            </a>
+         </div>
+        </div>
+      </nav>

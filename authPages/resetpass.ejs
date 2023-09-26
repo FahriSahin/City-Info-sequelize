@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şifre Yenileme</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Pass</title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <%- include('../userpages/navbar.ejs') %>
+      <div class="container">
+          <% if (typeof message != "undefined") { %>
+            <div class="alert alert-warning">
+                <%= message %>
+            </div>
+          <% } %>
+
+      
+    <form method="post" class="w-100 mx-auto">
+        <div class="form-group mb-3">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+      </form>
+    </div>
+    
+</body>
+</html>
+</body>
+</html>

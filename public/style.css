@@ -1,0 +1,10 @@
+a{
+    text-decoration: none !important;
+    color: #fff;
+}
+.active{
+    color: #fff !important;
+}
+.ck-editor__editable {
+    min-height: 250px !important;
+}
